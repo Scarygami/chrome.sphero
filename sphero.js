@@ -96,7 +96,7 @@
       }
     }
 
-    function write (did, cid, seq, data) {
+    function write (did, cid, seq, data, callback) {
       var buffer, view, check, i;
       if (!current_device || !current_socket) { return; }
       buffer = new ArrayBuffer(7 + data.length);
@@ -118,7 +118,11 @@
       view[6 + data.length] = check & 0xFF ^ 0xFF;
 
       bt.write({"socket": current_socket, "data": buffer}, function (r) {
-        con.log("Data written", view);
+        if (!!callback) {
+          try { callback(); } catch (e) {
+            con.log("Error calling connect callback", e);
+          }
+        }
       });
     }
 
@@ -241,20 +245,20 @@
     this.disconnect = function (callback) { disconnect(callback); };
     
     // Functions to actually controll the sphero
-    this.changeColor = function (r, g, b) {
-      write(0x02, 0x20, 0x00, [r, g, b, 0]);
+    this.changeColor = function (r, g, b, callback) {
+      write(0x02, 0x20, 0x00, [r, g, b, 0], callback);
     };
 
-    this.setTailLight = function (bright) {
-      write(0x02, 0x21, 0x00, [bright]);
+    this.setTailLight = function (bright, callback) {
+      write(0x02, 0x21, 0x00, [bright], callback);
     };
 
-    this.setHeading = function (heading) {
-      write(0x02, 0x01, 0x00, [(heading >> 8), heading]);
+    this.setHeading = function (heading, callback) {
+      write(0x02, 0x01, 0x00, [(heading >> 8), heading], callback);
     };
 
-    this.roll = function (speed, heading, go) {
-      write(0x02, 0x30, 0x00, [speed, (heading >> 8), heading, (go ? 1 : 0)]);
+    this.roll = function (speed, heading, go, callback) {
+      write(0x02, 0x30, 0x00, [speed, (heading >> 8), heading, (go ? 1 : 0)], callback);
     };
     
     // Functions mainly meant for debugging

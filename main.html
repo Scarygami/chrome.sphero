@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <title>Sphero</title>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="external/beatdetektor.js"></script>
+    <script src="sphero.js"></script>
   </head>
   <body>
     <h1>Sphero</h1>
     <p id="status"></p>
-    <div id="controls" style="display: none;">
+    <div id="main" style="display: none;">
       <button id="connect">Connect</button>
+      <div id="controls" style="display: none;">
+        <div id="drop">DROP THE MUSIC</div>
+        <button id="start" disabled>Start Music</button>
+        <button id="stop" disabled>Stop Music</button>
+      </div>
     </div>
-    <script src="sphero.js"></script>
     <script src="demo.js"></script>
   </body>
 </html>

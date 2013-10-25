@@ -1,3 +1,19 @@
 * { box-sizing: border-box; margin: 0;}
 
 body { padding: 5px; }
+
+#drop {
+  height: 300px;
+  border: 2px solid #CCC;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-align: center;
+  padding-top: 120px;
+  font-size: 40px;
+  color: #CCC;
+}
+
+#drop.dragging {
+  border-color: #000;
+  color: #000;
+}

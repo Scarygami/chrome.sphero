@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Sphero",
+  "description": "Sphero experiment",
+  "version": "0.0.1",
+  "permissions": [
+    {
+      "bluetooth":
+      [
+        { "uuid": "00001101-0000-1000-8000-00805f9b34fb" }
+      ]
+    }
+  ],
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  }
+}

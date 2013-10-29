@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hangout Sphero Demo</title>
+    <script src="//plus.google.com/talkgadget/apps/gadgets/js/rpc.js"></script>
+    <script src="//plus.google.com/hangouts/_/api/dev/hangout.js"></script>
+    <link rel="stylesheet"  type="text/css" href="sphero.css">
+  </head>
+  <body>
+     <div id="sphero">
+      <div id="status">Loading...</div>
+      <button id="connect">Connect Sphero</button>
+      <table id="controls" style="display: none;">
+        <tr><td></td><td><button id="forward">Forward</button></td><td></td></tr>
+        <tr><td><button id="left">Left</button></td><td></td><td><button id="right">Right</button></td></tr>
+        <tr><td></td><td><button id="back">Back</button></td><td></td></tr>
+      </table>
+     </div>
+     <script src="sphero.js"></script>
+  </body>
+</html>

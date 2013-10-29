@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Hangout Sphero",
+  "version": "0.0.1",
+  "description": "Controlling Sphero remotely via Hangout",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://plus.google.com/hangouts/_*",
+        "https://*.googleusercontent.com/gadgets/*",
+        "{URL WHERE HANGOUT EXTENSION IS HOSTED}*"
+      ],
+      "all_frames": true,
+      "js": ["content.js"]
+    }
+  ]
+}
